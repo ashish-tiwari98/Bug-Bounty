@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../styles/bootstrap.min.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css"
+    />
+    <title>Bug Tracking System</title>
+  </head>
+  <body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+      <div class="container-fluid">
+        <a
+          class="navbar-brand me-auto ms-lg-0 ms-3 text-uppercase fw-bold"
+          href="#">Bug Tracking System</a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#topNavBar"
+          aria-controls="topNavBar"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="topNavBar">
+          <div class="d-flex ms-auto my-3 my-lg-0">
+              <ul class="navbar-nav" style="float: right;">
+                <li class="nav-item dropdown">
+                  <a
+                    class="nav-link dropdown-toggle ms-2"
+                    href="#"
+                    role="button"
+                    data-bs-toggle="dropdown"
+                    aria-expanded="false"
+                  >
+                    <i class="bi bi-person-fill"></i>
+                  </a>
+                  <ul class="dropdown-menu dropdown-menu-end">
+                    <li><a class="dropdown-item" href="#">Profile</a></li>
+                    <li><a class="dropdown-item" href="#">Logout</a></li>
+                  </ul>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </nav>
+    <main class="mt-5 pt-3">
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-md-12">
+            <h4>Dashboard -Project Manager</h4>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-3 mb-3" style="width: 30%;" id="view_data" onclick="view_toggle()">
+            <div class="card bg-primary text-white">
+              <div class="card-body py-5" style="height: auto">New Project</div>
+            </div>
+          </div>
+          <div class="col-md-3 mb-3" style="width: 70%;" hidden id="form">
+            <div class="card bg-warning text-dark">
+              <div class="card-body py-5" style="height: auto">
+                <form id="project_data" onsubmit="on_submit()">
+                  <div class="form-group">
+                    <label for="project-name">Project Name</label>
+                    <input type="text" class="form-control" id="pName" placeholder="Project Name">
+                  </div>
+                  <div class="form-group">
+                    <label for="date">Date</label>
+                    <input type="date" class="form-control" id="pDate">
+                  </div>
+                  <div class="form-group">
+                    <label for="desc">Description</label>
+                    <textarea class="form-control" id="pDesc"></textarea>
+                  </div>
+                  <div class="btn btn-primary mt-2" onclick="add_members()">Add team members</div>
+                  <div class="form-group" id="team" hidden>
+                  <br>
+                  <input type="checkbox" name="dummy1" id="d1">Dummy 1
+                  <input type="checkbox" name="dummy2" id="d2">Dummy 2
+                  <input type="checkbox" name="dummy3" id="d3">Dummy 3
+                  <input type="checkbox" name="dummy4" id="d4">Dummy 4
+                  </div>
+                  <button type="submit" class="btn btn-primary mt-2">Submit</button>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- to be handled with js on response from servlet and display project details accordingly
+        dummy data is used only for representation -->
+        <div class="row">
+          <div class="col-md-12 mb-3">
+            <div class="card">
+              <div class="card-header">
+                <span><i class="bi bi-table me-2"></i></span> Projects
+              </div>
+              <div class="card-body">
+                <div class="table-responsive">
+                  <table
+                    id="example"
+                    class="table table-striped data-table"
+                    style="width: 100%"
+                  >
+                    <thead>
+                      <tr>
+                        <th>Project Name</Nav></th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td><a href="#">Dummy Project 1</a></td>
+                      </tr>
+                      <tr>
+                        <td><a href="#">Dummy Project 2</a></td>
+                      </tr>
+                      <tr>
+                        <td><a href="#">Dummy Project 3</a></td>
+                      </tr>
+                      <tr>
+                    </tbody>
+                    <tfoot>
+                      <tr>
+                        <th>Project Name</th>
+                      </tr>
+                    </tfoot>
+                  </table>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+    <script>
+       function view_toggle() {
+          document.getElementById("form").hidden = false;
+        }
+        function add_members(){
+          document.getElementById("team").hidden = false;
+          //logic to get members from servlet
+        }
+        function on_submit(){
+          document.getElementById("form").hidden = true;
+          document.getElementById("team").hidden = true;
+          var data = document.getElementById("project_data");
+          console.log(data);
+        }
+    </script>
+    <script src="js/bootstrap.bundle.min.js"></script>
+  </body>
+</html>
