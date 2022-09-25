@@ -13,31 +13,42 @@
 </head>
 <body>
     <div class="container">
-        <form>
-            <div class="form-group m-2">
-            <label for="exampleInputEmail1">Email address</label>
-            <input type="email" class="form-control form-control-lg" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
+        <form action="" class="registerForm">
+            <h1>Welcome</h1>
+            <p>Register your details</p>
+            <div class="form-group row m-2">
+                <label class="col-sm-2 col-form-label" for="exampleInputEmail1">Email address</label>
+                <div class="col-sm-10">
+                    <input type="email" class="form-control form-control-lg" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email" name="email" required pattern="[a-zA-Z0-9._%+-]+@[a-z0-9.-]+\.[a-zA-Z]{2,4}">
+                </div>
             </div>
-            <div class="form-group m-2">
-                <select class="form-select" aria-label="Default select example">
-                    <option selected>Role</option>
-                    <option value="1">Project Manager</option>
-                    <option value="2">Developer</option>
-                    <option value="3">Tester</option>
-                </select>
+            <div class="form-group row m-2">
+                <label class="col-sm-2 col-form-label" for="exampleInputRole">Role</label>
+                <div class="col-sm-10">
+                    <select class="form-select" name="role" aria-label="Default select example">
+                        <option value="project manager">Project Manager</option>
+                        <option value="developer">Developer</option>
+                        <option value="tester">Tester</option>
+                    </select>
+                </div>
             </div>
 
-            <div class="form-group m-2">
-            <label for="exampleInputPassword1">Password</label>
-            <input type="password" class="form-control form-control-lg" id="exampleInputPassword1" placeholder="Password">
+            <div class="form-group row m-2">
+                <label class="col-sm-2 col-form-label" for="exampleInputPassword1">Password</label>
+                <div class="col-sm-10">
+                    <input type="password" name="password" class="form-control form-control-lg" id="password" placeholder="Password" onkeyup="check();" required>
+                </div>
             </div>
-            <div class="form-group m-2">
-                <label for="exampleInputPassword2">Confirm Password</label>
-                <input type="password" class="form-control form-control-lg" id="exampleInputPassword2" placeholder="Confirm Password">
+            <div class="form-group row m-2">
+                <label class="col-sm-2 col-form-label" for="exampleInputPassword2">Confirm Password</label>
+                <div class="col-sm-10">
+                    <input type="password" name="confirm" class="form-control form-control-lg" id="confirm_password" placeholder="Confirm Password" onkeyup="check();" required>
+                </div>
             </div>
 
             <button type="submit" class="btn btn-primary m-2">Submit</button>
         </form>
     </div>
+    <script src="../js/index.js"></script>
 </body>
 </html>
